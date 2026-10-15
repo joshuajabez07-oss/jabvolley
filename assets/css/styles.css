@@ -1,0 +1,312 @@
+/* =====================================================================
+   JabVolley — styles.css
+   Author : Joshua Jabez P. Sagad (BSIT 2nd Year, Holy Angel University)
+   Method : Mobile-adaptive, BEM naming, CSS custom properties
+   Breakpoints (max-width):  Desktop > 1024px | Tablet <= 1024px | Mobile <= 600px
+   ===================================================================== */
+
+/* 1. DESIGN TOKENS ---------------------------------------------------- */
+:root {
+  --color-navy:   #0b3d78;   /* header + footer */
+  --color-ink:    #07075c;   /* page-hero + copyright bar */
+  --color-yellow: #facc15;
+  --color-cyan:   #22e3d3;
+  --color-blue:   #2a2acf;
+  --color-slate:  #6b7f9e;   /* "Learn Volleyball" band (tablet/mobile) */
+  --color-gray:   #d9d9d9;
+  --color-white:  #ffffff;
+  --color-black:  #000000;
+  --color-error:  #b3001b;
+
+  --font-display: "Saira", "Arial Narrow", Arial, sans-serif;
+  --font-body:    "Chakra Petch", Arial, sans-serif;
+
+  --container: 1296px;
+  --radius-pill: 999px;
+}
+
+/* 2. BASE / RESET ----------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: #0a0a12; }  /* dark surround, like the Figma prototype viewer */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-black);
+  background: var(--color-white);
+  line-height: 1.5;
+  max-width: var(--container);   /* page is a centered 1296px column, as in the mockup */
+  margin-inline: auto;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, p, figure { margin: 0; }
+:focus-visible { outline: 3px solid var(--color-cyan); outline-offset: 3px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.skip-link {
+  position: absolute; left: .5rem; top: -4rem; z-index: 100;
+  background: var(--color-yellow); padding: .5rem 1rem; border-radius: .5rem;
+}
+.skip-link:focus { top: .5rem; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; }
+
+/* 3. BUTTONS ---------------------------------------------------------- */
+.btn {
+  display: inline-block; border: 0; cursor: pointer;
+  font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  padding: .55em 1.6em;
+  font-size: clamp(.62rem, 1.9vw, 1.65rem);
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.btn--yellow { background: var(--color-yellow); color: var(--color-black); }
+.btn--blue   { background: var(--color-blue);   color: var(--color-white); }
+.btn--video  { font-weight: 700; font-family: var(--font-body); font-style: italic; text-transform: none; font-size: clamp(.6rem, 1.8vw, 1.4rem); padding: .4em 1.4em; }
+
+/* 4. HEADER + NAVIGATION --------------------------------------------- */
+.site-header { background: var(--color-navy); position: relative; z-index: 20; }
+.site-header__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .5rem 1rem; min-height: 108px;
+}
+.brand { display: flex; align-items: center; gap: .75rem; }
+.brand__logo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+.brand__name { font-family: var(--font-display); font-weight: 800; font-size: 2.75rem; line-height: 1; color: var(--color-cyan); }
+.brand__name span { color: var(--color-yellow); }
+.brand__tagline { font-family: var(--font-body); font-weight: 400; color: var(--color-white); font-size: 1.25rem; letter-spacing: .02em; }
+
+.nav__list { display: flex; gap: clamp(1.5rem, 3.2vw, 3.25rem); padding-right: 2rem; }
+.nav__link {
+  font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+  font-size: 1.65rem; color: var(--color-white); transition: color .15s;
+}
+.nav__link:hover, .nav__link[aria-current="page"] { color: var(--color-yellow); }
+
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: .5rem; }
+.nav-toggle__bar { display: block; width: 46px; height: 6px; background: var(--color-white); margin: 7px 0; border-radius: 2px; transition: transform .2s, opacity .2s; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) { transform: translateY(13px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) { transform: translateY(-13px) rotate(-45deg); }
+
+/* 5. HOME — HERO ------------------------------------------------------ */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(5,8,20,.85) 0%, rgba(5,8,20,.35) 45%, rgba(5,8,20,0) 70%),
+    url("../images/hero-ball.jpg") center 50% / cover no-repeat;
+  min-height: 300px; display: flex; align-items: center;
+}
+.hero__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem 1.5rem 1.5rem 1.6rem; }
+.hero__title { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: clamp(1rem, 3.2vw, 2.4rem); line-height: 1.25; }
+.hero__title--a { color: var(--color-cyan); }
+.hero__title--b { color: var(--color-yellow); }
+.hero__text { color: var(--color-white); font-size: clamp(.55rem, 1.35vw, 1.05rem); max-width: 22rem; margin-top: 1rem; text-shadow: 0 1px 4px rgba(0,0,0,.7); }
+
+/* 6. HOME — WELCOME --------------------------------------------------- */
+.welcome__inner { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 2rem; align-items: center; padding: 1.5rem 1.5rem 1.5rem 1.6rem; }
+.welcome__title { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; color: var(--color-ink); font-size: clamp(.9rem, 3.4vw, 2.9rem); line-height: 1.1; }
+.welcome__text { font-size: clamp(.55rem, 1.7vw, 1.4rem); margin: .75rem 0 1.25rem; line-height: 1.8; }
+.rounded-photo { border-radius: clamp(24px, 5vw, 56px); width: 100%; aspect-ratio: 505 / 352; object-fit: cover; }
+
+/* 7. HOME — LEARN VOLLEYBALL (lives inside footer, see §11) ---------- */
+.learn { display: flex; align-items: center; gap: 1rem; }
+.learn__thumb { width: 58%; height: auto; border-radius: 28px; aspect-ratio: 362 / 165; object-fit: cover; flex: none; }
+.learn__title { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; color: var(--color-yellow); font-size: 1.4rem; }
+.learn__text { color: var(--color-white); font-size: .7rem; margin: .5rem 0 1rem; }
+
+/* 8. SUB-PAGE HERO (About / Schedule / Contact) ---------------------- */
+.page-hero { background: var(--color-ink); }
+.page-hero__inner { padding: 2.25rem 4rem 2rem; }
+.page-hero__title { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; color: var(--color-cyan); font-size: clamp(1.4rem, 5vw, 3.4rem); line-height: 1.1; }
+.page-hero__sub { color: var(--color-white); font-weight: 800; font-size: clamp(.7rem, 1.9vw, 1.2rem); margin-top: .5rem; }
+.page-hero--court {
+  background:
+    linear-gradient(90deg, rgba(5,8,30,.55), rgba(5,8,30,.1)),
+    url("../images/court-banner.jpg") center / cover no-repeat;
+  position: relative;
+}
+.page-hero--court .page-hero__inner { padding-block: 3rem 2.5rem; }
+.page-hero--court .page-hero__title { text-shadow: 0 2px 8px rgba(0,0,0,.45); }
+.page-hero--court .page-hero__sub { max-width: 40rem; text-transform: uppercase; text-shadow: 0 1px 6px rgba(0,0,0,.6); }
+
+/* 9. ABOUT PAGE ------------------------------------------------------- */
+.about__grid {
+  display: grid; align-items: end; gap: 1.25rem 2rem; padding: 3rem 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-areas: "positions rules skills" "pos-icons photo skill-icons";
+}
+.info-card { background: var(--color-yellow); border-radius: 56px; padding: 1.4rem 2rem; color: var(--color-ink); }
+.info-card--rules { grid-area: rules; }
+.info-card--positions { grid-area: positions; }
+.info-card--skills { grid-area: skills; }
+.info-card__title { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: 1.2rem; margin-bottom: .35rem; }
+.info-card__item { font-size: clamp(.62rem, 1.3vw, .8rem); line-height: 1.55; font-weight: 800; }
+.info-card__item strong { font-weight: 800; text-transform: uppercase; }
+.about__photo { grid-area: photo; border-radius: 48px; width: 100%; aspect-ratio: 243 / 118; object-fit: cover; align-self: start; }
+.about__icons { width: 100%; border-radius: 4px; align-self: start; }
+.about__icons--positions { grid-area: pos-icons; }
+.about__icons--skills { grid-area: skill-icons; }
+
+/* 10. SCHEDULE + CONTACT --------------------------------------------- */
+.schedule { padding: 1.5rem 6rem 1.5rem; }
+.schedule__panel { background: var(--color-yellow); border-radius: clamp(36px, 7vw, 90px); padding: clamp(1.25rem, 3vw, 2.5rem) 2rem clamp(1.25rem, 3vw, 2.5rem) 5rem; }
+.schedule__table { width: 100%; border-collapse: collapse; font-family: var(--font-display); font-weight: 800; font-size: clamp(.7rem, 2.2vw, 1.7rem); }
+.schedule__table th { text-transform: uppercase; text-align: left; }
+.schedule__table th, .schedule__table td { padding: .55em .25em; }
+.schedule__table { table-layout: fixed; }
+.schedule__table th:nth-child(1) { width: 42%; }   /* Match  */
+.schedule__table th:nth-child(2) { width: 40%; }   /* Teams  */
+.schedule__table th:nth-child(3) { width: 18%; }   /* Status */
+
+.contact__inner { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; padding: 1.5rem 1.25rem 1.5rem 2rem; }
+.form__field { margin-bottom: .75rem; }
+.form__label { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(.8rem, 1.6vw, 1.2rem); margin-bottom: .15rem; }
+.form__control {
+  width: 100%; border: 2px solid transparent; background: var(--color-gray); border-radius: 24px;
+  padding: .9rem 1rem; font-family: var(--font-body); font-weight: 700; font-size: clamp(.7rem, 1.6vw, 1.15rem); color: var(--color-black);
+}
+.form__control::placeholder { color: #111; opacity: 1; }
+textarea.form__control { min-height: 8.5rem; resize: vertical; }
+.form__control[aria-invalid="true"] { border-color: var(--color-error); }
+.form__error { color: var(--color-error); font-size: .8rem; min-height: 1.1em; margin-top: .25rem; font-weight: 700; }
+.form__actions { display: flex; gap: 1.25rem; margin-top: 1.25rem; }
+.form__actions .btn { border-radius: 6px; font-size: clamp(.75rem, 1.6vw, 1.1rem); min-width: 8.5rem; padding: .55em 1em; }
+.form__status { margin-top: 1rem; padding: .75rem 1rem; border-radius: 12px; background: #dff7e4; color: #0d5b22; font-weight: 700; }
+.form__status[hidden] { display: none; }
+
+/* 11. FOOTER ---------------------------------------------------------- */
+.site-footer { background: var(--color-navy); color: var(--color-white); }
+.site-footer__inner { display: flex; flex-wrap: wrap; align-items: center; padding: 1.25rem 1rem; gap: 1.5rem 2rem; }
+.site-footer__cols { flex: 1 1 0; min-width: 0; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1.5rem; align-items: start; justify-items: start; padding-inline: 1rem; }
+.footer__heading { font-family: var(--font-display); font-weight: 800; font-size: 2.1rem; line-height: 1.1; color: var(--color-cyan); }
+.footer__heading span { color: var(--color-yellow); }
+.footer__heading--follow { text-transform: uppercase; color: var(--color-yellow); font-size: 1.9rem; }
+.footer__slogan { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; margin: .25rem 0 .5rem; }
+.footer__about { font-size: .8rem; line-height: 1.7; max-width: 16rem; }
+.footer__links li { margin-top: .5rem; }
+.footer__links a { font-weight: 800; text-transform: uppercase; font-size: .85rem; }
+.footer__links a:hover { color: var(--color-yellow); }
+.social { display: flex; gap: 1.25rem; margin-top: 1.25rem; }
+.social img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; transition: transform .15s; }
+.social img[src*="youtube"] { background: var(--color-white); object-fit: contain; padding: 11px 7px; }  /* red logo inside a white circle */
+.social a:hover img { transform: scale(1.1); }
+.site-footer__copy { background: var(--color-ink); text-align: center; padding: .7rem 1rem; font-weight: 800; font-size: 1.05rem; }
+
+/* Home page: "Learn Volleyball" shares the footer band on desktop */
+.site-footer--home .learn { flex: 0 0 42%; padding-left: .5rem; }
+
+/* =====================================================================
+   TABLET  (<= 1024px) — hamburger nav, scaled layouts
+   ===================================================================== */
+@media (max-width: 1024px) {
+  .site-header__inner { min-height: 66px; padding: .4rem .9rem; }
+  .brand__logo { width: 64px; height: 64px; }
+  .brand__name { font-size: 1.75rem; }
+  .brand__tagline { font-size: .85rem; }
+
+  .nav-toggle { display: block; margin-right: 1rem; }
+  .nav-toggle__bar { width: 44px; height: 6px; margin: 6px 0; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) { transform: translateY(12px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) { transform: translateY(-12px) rotate(-45deg); }
+  .nav { position: absolute; inset: 100% 0 auto 0; background: var(--color-navy); border-top: 1px solid rgba(255,255,255,.2); max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  .nav.is-open { max-height: 320px; box-shadow: 0 12px 24px rgba(0,0,0,.35); }
+  .nav__list { flex-direction: column; gap: 0; padding: .5rem 0; }
+  .nav__link { display: block; padding: .9rem 1.5rem; font-size: 1.2rem; }
+
+  .hero { min-height: 167px; }
+  .hero__inner { padding: 1rem 1rem; }
+  .hero__text { margin-top: .5rem; }
+  .btn { font-size: clamp(.62rem, 1.9vw, 1rem); }
+
+  .welcome__inner { padding: 3rem 1rem; gap: 1rem; }
+
+  .site-footer--home .learn { flex: 0 0 calc(100% + 2rem); background: var(--color-slate); margin: -1.25rem -1rem 0; padding: 1.25rem 2rem; }
+  .site-footer--home .site-footer__inner { gap: 1.25rem 0; }
+  .learn__title { font-size: clamp(.95rem, 2.5vw, 1.4rem); }
+  .learn__text { font-size: clamp(.55rem, 1.4vw, .75rem); }
+  .site-footer__cols { flex: 1 1 100%; grid-template-columns: 1.4fr 1fr 1fr; padding-inline: 0; gap: 1rem; }
+  .footer__heading { font-size: clamp(1.1rem, 3.2vw, 1.8rem); }
+  .footer__heading--follow { font-size: clamp(1rem, 3vw, 1.7rem); }
+  .footer__slogan { font-size: clamp(.6rem, 1.5vw, .85rem); }
+  .footer__about { font-size: clamp(.55rem, 1.4vw, .75rem); }
+  .footer__links a { font-size: clamp(.55rem, 1.4vw, .75rem); }
+  .social { gap: .6rem; }
+  .social img { width: clamp(30px, 6.8vw, 46px); height: clamp(30px, 6.8vw, 46px); }
+  .site-footer__copy { font-size: clamp(.6rem, 1.8vw, .85rem); }
+
+  .page-hero__inner, .page-hero--court .page-hero__inner { padding: 2.75rem 1.25rem; }
+
+  /* About: stack rules → photo → (positions | skills) → icons */
+  .about__grid {
+    padding: 1.5rem 1rem 2.5rem; gap: .9rem 1.25rem; align-items: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "rules rules" "photo photo" "positions skills" "pos-icons skill-icons";
+  }
+  .info-card--rules { justify-self: center; width: min(100%, 26rem); }
+  .about__photo { justify-self: center; width: min(100%, 20rem); aspect-ratio: 243 / 118; }
+  .info-card { border-radius: 44px; padding: 1.1rem 1.4rem; height: 100%; }
+  .info-card__title { font-size: 1rem; }
+
+  .schedule { padding: 2rem 1rem; }
+  .schedule__panel { padding-left: 1.5rem; padding-right: 1rem; }
+  .schedule__table th:nth-child(1) { width: 38%; }
+  .schedule__table th:nth-child(2) { width: 36%; }
+  .schedule__table th:nth-child(3) { width: 26%; }
+  .contact__inner { padding: 1.25rem 1rem; gap: 1.25rem; align-items: start; }
+  textarea.form__control { min-height: 11rem; }
+  .contact__photo { align-self: center; }
+}
+
+/* =====================================================================
+   MOBILE  (<= 600px)
+   ===================================================================== */
+@media (max-width: 600px) {
+  .brand__logo { width: 50px; height: 50px; }
+  .brand__name { font-size: 1.35rem; }
+  .brand__tagline { font-size: .62rem; font-weight: 700; }
+  .nav-toggle { margin-right: .25rem; }
+  .nav-toggle__bar { width: 38px; height: 5px; margin: 5px 0; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+
+  .hero { min-height: 130px; }
+  .hero__inner { padding: .75rem; }
+  .welcome__inner { padding: 2.5rem .75rem; }
+
+  .site-footer--home .learn { padding: 1rem .75rem; margin-inline: -1rem; }
+  .learn__thumb { border-radius: 20px; width: 46%; }
+  .site-footer__inner { padding: 1rem .75rem; }
+  .site-footer--home .learn { margin-top: -1rem; margin-inline: -.75rem; flex-basis: calc(100% + 1.5rem); }
+  .site-footer__cols { grid-template-columns: 1.5fr 1.15fr 1fr; gap: .6rem; }
+
+  .info-card { padding: .9rem 1rem; border-radius: 34px; }
+  .page-hero__inner, .page-hero--court .page-hero__inner { padding: 1.75rem 1rem; }
+
+  .schedule { padding: 1.5rem .75rem; }
+  .schedule__panel { padding: 1.25rem 1.1rem; }
+  .schedule__table td, .schedule__table th { padding: .8em .2em; }
+  .team-long { display: none; }
+
+  .form__control { border-radius: 16px; padding: .7rem; }
+  .form__actions { gap: .5rem; }
+  .form__actions .btn { min-width: 0; flex: 1; }
+}
+/* Very small phones: stack two-column blocks */
+@media (max-width: 380px) {
+  .welcome__inner, .contact__inner { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* 12. VIDEO MODAL ----------------------------------------------------- */
+.video-modal { border: 0; padding: 0; background: #000; width: min(92vw, 900px); border-radius: 16px; overflow: hidden; }
+.video-modal::backdrop { background: rgba(0,0,10,.8); }
+.video-modal video { display: block; width: 100%; aspect-ratio: 16 / 9; }
+.video-modal__close { position: absolute; top: .5rem; right: .75rem; z-index: 2; width: 2.5rem; height: 2.5rem; border: 0; border-radius: 50%; background: var(--color-yellow); font-size: 1.6rem; line-height: 1; cursor: pointer; }
+.about__icons { border-radius: 4px; object-fit: cover; }
