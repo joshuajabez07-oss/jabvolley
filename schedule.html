@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schedule | JabVolley</title>
+  <meta name="author" content="Joshua Jabez P. Sagad">
+  <meta name="theme-color" content="#0b3d78">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <meta name="description" content="Check the upcoming JabVolley volleyball games.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=Saira:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <a class="brand" href="index.html" aria-label="JabVolley home">
+        <img class="brand__logo" src="assets/images/logo.png" alt="JabVolley volleyball logo" width="96" height="96">
+        <span>
+          <span class="brand__name" style="display:block">Jab<span>Volley</span></span>
+          <span class="brand__tagline">Play Hard, Play Together</span>
+        </span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Main navigation">
+        <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="about.html">About Volleyball</a></li>
+        <li><a class="nav__link" href="schedule.html" aria-current="page">Schedule</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero__inner container">
+        <h1 class="page-hero__title">Schedule</h1>
+        <p class="page-hero__sub">CHECK OUR UPCOMING VOLLEYBALL GAMES</p>
+      </div>
+    </section>
+
+    <section class="schedule container" aria-label="Upcoming matches">
+      <div class="schedule__panel">
+        <table class="schedule__table">
+          <caption class="sr-only">Upcoming volleyball matches</caption>
+          <thead><tr><th scope="col">Match</th><th scope="col">Teams</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><td>Match 1</td><td>Team A vs <span class="team-long">Team </span>B</td><td>Upcoming</td></tr>
+            <tr><td>Match 2</td><td>Team C vs <span class="team-long">Team </span>D</td><td>Upcoming</td></tr>
+            <tr><td>Match 3</td><td>Team A vs <span class="team-long">Team </span>C</td><td>Upcoming</td></tr>
+            <tr><td>Match 4</td><td>Team B vs <span class="team-long">Team </span>D</td><td>Upcoming</td></tr>
+            <tr><td>Match 5</td><td>Team A vs <span class="team-long">Team </span>D</td><td>Upcoming</td></tr>
+            <tr><td>Match 6</td><td>Team C vs <span class="team-long">Team </span>B</td><td>Upcoming</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+      <div class="site-footer__cols">
+        <div>
+          <p class="footer__heading">Jab<span>Volley</span></p>
+          <p class="footer__slogan">Play hard. Play together</p>
+          <p class="footer__about">We are dedicated to promoting volleyball and inspiring players to play hard and play together</p>
+        </div>
+        <nav aria-label="Quick links">
+          <p class="footer__heading">Quick Links</p>
+          <ul class="footer__links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT VOLLEYBALL</a></li>
+            <li><a href="schedule.html">SCHEDULE</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="footer__heading footer__heading--follow">Follow Us</p>
+          <div class="social">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="assets/images/icons/instagram.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener"><img src="assets/images/icons/facebook.png" alt="Facebook"></a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener"><img src="assets/images/icons/youtube.png" alt="YouTube"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="site-footer__copy">&copy; 2026 JabVolley. All Rights Reserved</p>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
