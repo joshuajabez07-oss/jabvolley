@@ -4,7 +4,7 @@
 
 - **Course:** INTROWEB WD202, Holy Angel University
 - **Developer:** Joshua Jabez P. Sagad (BSIT 2nd Year)
-- **Live site:** https://YOUR-USERNAME.github.io/YOUR-REPO/   <!-- replace after enabling GitHub Pages -->
+- **Live site:** https://joshuajabez07-oss.github.io/jabvolley/
 
 ## Tech
 HTML5 semantic tags, CSS3 (Flexbox, Grid, custom properties, media queries), vanilla JavaScript.
