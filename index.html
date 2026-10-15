@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | JabVolley</title>
+  <meta name="author" content="Joshua Jabez P. Sagad">
+  <meta name="theme-color" content="#0b3d78">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <meta name="description" content="JabVolley is your ultimate guide to volleyball: rules, positions, skills and upcoming games.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=Saira:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <a class="brand" href="index.html" aria-label="JabVolley home">
+        <img class="brand__logo" src="assets/images/logo.png" alt="JabVolley volleyball logo" width="96" height="96">
+        <span>
+          <span class="brand__name" style="display:block">Jab<span>Volley</span></span>
+          <span class="brand__tagline">Play Hard, Play Together</span>
+        </span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Main navigation">
+        <ul class="nav__list">
+        <li><a class="nav__link" href="index.html" aria-current="page">Home</a></li>
+        <li><a class="nav__link" href="about.html">About Volleyball</a></li>
+        <li><a class="nav__link" href="schedule.html">Schedule</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner container">
+        <div>
+          <h1 class="hero__title" id="hero-title"><span class="hero__title--a">Play hard.</span><br><span class="hero__title--b">Play together.</span></h1>
+          <p class="hero__text">Discover the rules, positions, skills, and schedules you need to learn and enjoy volleyball even more</p>
+        </div>
+        <a class="btn btn--yellow" href="about.html">Explore more --&gt;</a>
+      </div>
+    </section>
+
+    <!-- Welcome -->
+    <section class="welcome" aria-labelledby="welcome-title">
+      <div class="welcome__inner container">
+        <div>
+          <h2 class="welcome__title" id="welcome-title">Welcome to JabVolley</h2>
+          <p class="welcome__text">JabVolley is your ultimate guide to volleyball. Learn the rules, understand the positions, improve your skills, and stay updated with upcoming games.</p>
+          <a class="btn btn--blue" href="about.html">About Volleyball --&gt;</a>
+        </div>
+        <figure class="photo-figure">
+          <img class="rounded-photo" src="assets/images/team-huddle.jpg" alt="Volleyball team celebrating together at the net" width="900" height="500">
+          <figcaption class="sr-only">Volleyball players celebrating a point</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer site-footer--home">
+    <div class="site-footer__inner container">
+      <!-- Learn Volleyball band (shares the footer row on desktop) -->
+      <section class="learn" aria-labelledby="learn-title">
+        <img class="learn__thumb" src="assets/images/video-thumb.jpg" alt="Volleyball match between two national teams" width="706" height="397" loading="lazy">
+        <div>
+          <h2 class="learn__title" id="learn-title">Learn Volleyball</h2>
+          <p class="learn__text">Watch our video to learn basic volleyball skills and techniques.</p>
+          <button class="btn btn--yellow btn--video" type="button" data-video-open>watch video --&gt;</button>
+        </div>
+      </section>
+
+      <div class="site-footer__cols">
+        <div>
+          <p class="footer__heading">Jab<span>Volley</span></p>
+          <p class="footer__slogan">Play hard. Play together</p>
+          <p class="footer__about">We are dedicated to promoting volleyball and inspiring players to play hard and play together</p>
+        </div>
+        <nav aria-label="Quick links">
+          <p class="footer__heading">Quick Links</p>
+          <ul class="footer__links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT VOLLEYBALL</a></li>
+            <li><a href="schedule.html">SCHEDULE</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="footer__heading footer__heading--follow">Follow Us</p>
+          <div class="social">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="assets/images/icons/instagram.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener"><img src="assets/images/icons/facebook.png" alt="Facebook"></a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener"><img src="assets/images/icons/youtube.png" alt="YouTube"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="site-footer__copy">&copy; 2026 JabVolley. All Rights Reserved</p>
+  </footer>
+
+  <!-- Video modal (local MP4) -->
+  <dialog class="video-modal" id="video-modal" aria-label="Learn volleyball video">
+    <button class="video-modal__close" type="button" data-video-close aria-label="Close video">&times;</button>
+    <video id="lesson-video" controls preload="none" poster="assets/images/video-thumb.jpg">
+      <source src="assets/video/learn-volleyball.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </dialog>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
